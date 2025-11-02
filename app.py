@@ -26,7 +26,12 @@ job_description = st.text_area("Paste the job description here")
 if st.button("Analyze"):
     if uploaded_file is not None and job_description.strip():
         features = vectorizer.transform([resume_text, job_description])
-        similarity = model.predict([features[0].toarray(), features[1].toarray()])
+       from scipy.spatial.distance import cosine
+
+# Compute similarity manually
+similarity = 1 - cosine(features[0].toarray(), features[1].toarray())
+
         st.success(f"Similarity score: {similarity}")
     else:
         st.warning("Please upload a resume and enter a job description.")
+
