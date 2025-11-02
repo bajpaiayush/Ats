@@ -5,7 +5,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
 # Load model and vectorizer
-model = joblib.load("model.pkl")
+model = joblib.load("ats_model.pkl")
 vectorizer = joblib.load("vectorizer.pkl")
 
 # Page config
@@ -64,3 +64,4 @@ if st.button("Check Match"):
 
 st.markdown("---")
 st.caption("Made with ❤️ by Team ATS")
+
